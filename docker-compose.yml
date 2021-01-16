@@ -1,0 +1,87 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - "2000:27017"
+    networks:
+      - javarest
+  read:
+    build:
+      context: ./ReadConversion
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+        - "MONGO=mongodb://mongo"
+    networks:
+      - javarest
+  create:
+    build:
+      context: ./CreateConversion
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+      - "4001:4001"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+        - "MONGO=mongodb://mongo"
+    networks:
+      - javarest
+  update:
+    build:
+      context: ./UpdateConversion
+      dockerfile: Dockerfile
+    ports:
+      - "7000:7000"
+      - "7001:7001"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+        - "MONGO=mongodb://mongo"
+    networks:
+      - javarest
+  delete:
+    build:
+      context: ./DeleteConversion
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+        - "MONGO=mongodb://mongo"
+    networks:
+      - javarest
+  conversion:
+    build:
+      context: ./CTService
+      dockerfile: Dockerfile
+    ports:
+      - "6000:6000"
+      - "6001:6001"
+    links:
+      - create
+    depends_on:
+      - create
+    environment:
+        - "CREATE=https://create/api/conversion"
+    networks:
+      - javarest
+networks:
+  javarest:

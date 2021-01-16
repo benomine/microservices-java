@@ -1,0 +1,8 @@
+microservices.jks
+microservices.p12
+ClientAdmin
+ClientService
+.fake
+.ionide
+mongo
+.vscode
