@@ -6,6 +6,10 @@ Ensemble de microservices REST Spring boot application
 
 Http et Https gérés par configuration Java
 
+## Eureka & Zuul
+
+Ajout de Eureka et Zuul de spring-cloud netflix
+
 ## Docker
 
 Intégration de Docker : Dockerfile + docker-compose
