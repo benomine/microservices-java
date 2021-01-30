@@ -26,7 +26,7 @@ public class AppelController {
     }
 
     @PostMapping
-    public HttpEntity<?> GetAppel(@RequestBody Appel appel) throws JSONException {
+    public HttpEntity<?> GetConversion(@RequestBody Appel appel) throws JSONException {
         double result = appel.getSens() == 1 ?
                 Calculs.ConvertCToF(appel.getValeur()) : Calculs.ConvertFToC(appel.getValeur());
         JSONObject jsonObject = parseAppelToJson(appel);

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Conversion/conversion.iml" filepath="$PROJECT_DIR$/Conversion/conversion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Create/create.iml" filepath="$PROJECT_DIR$/Create/create.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Delete/delete.iml" filepath="$PROJECT_DIR$/Delete/delete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eureka/eureka.iml" filepath="$PROJECT_DIR$/Eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Read/read.iml" filepath="$PROJECT_DIR$/Read/read.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rule-them-all.iml" filepath="$PROJECT_DIR$/rule-them-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Update/update.iml" filepath="$PROJECT_DIR$/Update/update.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Zuul/zuul.iml" filepath="$PROJECT_DIR$/Zuul/zuul.iml" />
+    </modules>
+  </component>
+</project>

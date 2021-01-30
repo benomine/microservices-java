@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="read" />
+        <module name="eureka" />
+        <module name="update" />
+        <module name="create" />
+        <module name="zuul" />
+        <module name="delete" />
+        <module name="conversion" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="conversion" target="11" />
+      <module name="create" target="11" />
+      <module name="delete" target="11" />
+      <module name="eureka" target="11" />
+      <module name="read" target="11" />
+      <module name="rule-them-all" target="1.5" />
+      <module name="update" target="11" />
+      <module name="zuul" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="conversion" options="-parameters" />
+      <module name="create" options="-parameters" />
+      <module name="delete" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="read" options="-parameters" />
+      <module name="update" options="-parameters" />
+      <module name="zuul" options="-parameters" />
+    </option>
+  </component>
+</project>
