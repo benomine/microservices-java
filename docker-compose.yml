@@ -10,7 +10,7 @@ services:
       - javarest
   read:
     build:
-      context: ./ReadConversion
+      context: ./Read
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
@@ -19,13 +19,14 @@ services:
       - mongo
     depends_on:
       - mongo
+      - eureka
     environment:
         - "MONGO=mongodb://mongo"
     networks:
       - javarest
   create:
     build:
-      context: ./CreateConversion
+      context: ./Create
       dockerfile: Dockerfile
     ports:
       - "4000:4000"
@@ -34,13 +35,14 @@ services:
       - mongo
     depends_on:
       - mongo
+      - eureka
     environment:
         - "MONGO=mongodb://mongo"
     networks:
       - javarest
   update:
     build:
-      context: ./UpdateConversion
+      context: ./Update
       dockerfile: Dockerfile
     ports:
       - "7000:7000"
@@ -49,13 +51,14 @@ services:
       - mongo
     depends_on:
       - mongo
+      - eureka
     environment:
         - "MONGO=mongodb://mongo"
     networks:
       - javarest
   delete:
     build:
-      context: ./DeleteConversion
+      context: ./Delete
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -64,13 +67,14 @@ services:
       - mongo
     depends_on:
       - mongo
+      - eureka
     environment:
         - "MONGO=mongodb://mongo"
     networks:
       - javarest
   conversion:
     build:
-      context: ./CTService
+      context: ./Conversion
       dockerfile: Dockerfile
     ports:
       - "6000:6000"
@@ -78,10 +82,25 @@ services:
     links:
       - create
     depends_on:
-      - create
+      - mongo
+      - eureka
     environment:
-        - "CREATE=https://create/api/conversion"
+        - "CREATE=https://create/api/conversion/create"
     networks:
       - javarest
+  eureka:
+    build:
+      context: ./Eureka
+      dockerfile: Dockerfile
+    networks:
+      - javarest
+  zuul:
+    build:
+      context: ./Zuul
+      dockerfile: Dockerfile
+    networks:
+      - javarest
+    depends_on:
+      - eureka
 networks:
   javarest:
